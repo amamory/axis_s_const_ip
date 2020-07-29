@@ -1,32 +1,26 @@
-# Vivado MODULE NAME
+# Vivado IP for constant value for a master AXI streaming interface
 
-This repo contains scripts to recreate **DESCRIBE THE MODULE HERE**. The project is setup for Zedboard, although it would be easy to change to other boards assuming you have some basic TCL skills.
+This repo contains scripts to recreate an IP block that sets the inputs of a *master AXI streaming interface* to logic level zero. The project is setup for Zedboard, although it would be easy to change to other boards assuming you have some basic TCL skills.
 
 # Module/IP design
 
-Describe here your module interface and protocols.
+The *valid* and *data* input ports are used in a dummy logic. The *ready* output is stuck to zero. The logic is made to avoid port optimizations in the unsed Hermes ports.
 
-![Place here a nice picture of your design](my-awesome-module.png)
+# How to download it
 
-# How to use this repository
-
-These scripts presented here are quite reusable if you keep the same dir structure. It should be useful for other Vivado/SDK projects with minor efforts. For this reason this repository is a template. Just click in **Use this Template** button to replicate it for your own project.
-
-In command line, create an empty repository called *<your-reponame>* in github and follow these steps to use it as a template:
+This repository might have custom IPs included as git submodules. Thus, the following command is required to download all its dependencies.
 
 ```
-mkdir <my-new-project>
-cd <my-new-project>
-git clone https://github.com/amamory/vivado-base-project.git .
-rm -rf .git
-git init
-git remote set-url origin https://github.com/<your-username>/<your-reponame>
-git add * .gitignore
-git commit -m "my initial commit"
-git push origin master
+git clone --recursive https://github.com/amamory/<repo-name>.git
 ```
 
-Each directory has instructions related to the kind of file you have to place in them.
+If you already cloned the repository without `--recursive`, then run the following command to download all the submodules.
+
+```
+git submodule update --init --recursive
+```
+
+Refer to this [tutorial](https://www.vogella.com/tutorials/GitSubmodules/article.html) to learn how to manage submodules.
 
 # How to run it
 
